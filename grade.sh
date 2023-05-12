@@ -14,3 +14,21 @@ echo 'Finished cloning'
 
 # Then, add here code to compile and run, and do any post-processing of the
 # tests
+
+
+set -e
+files=`find`
+for file in $files
+do
+if [[ -f $file ]] && [[ $file != file.txt ]] #insert for correct file 
+    then
+        echo "The file submitted is not correct."
+        exit 1 
+    else
+        echo "Checking file"
+        java GradeServer < $file 
+        result = cat $file.expect 
+        echo "Calculating" 
+        exit 0 
+fi
+done
