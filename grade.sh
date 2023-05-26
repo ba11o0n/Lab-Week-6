@@ -29,6 +29,10 @@ if [[ -f $file ]] && [[ $file != file.txt ]] #insert for correct file
         java GradeServer < $file 
         result = cat $file.expect 
         echo "Calculating" 
+        #locate .java file 
+        cp -r student-submission/ListExamples.java grading-area
+        #Get all the files from .java with the grading tests and 
+        #pass it into the grading-area directory 
         exit 0 
 fi
 done
